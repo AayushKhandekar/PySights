@@ -8,6 +8,7 @@ import matplotlib.pyplot as plt
 # filter warnings
 warnings.filterwarnings('ignore') 
 
+# global variables
 valid_frequencies = ["daily", "weekly"]
 valid_charts = ["line", "candle"]
 
