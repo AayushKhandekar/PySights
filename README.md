@@ -1,12 +1,10 @@
-# FE520-Project
+# stockinsights
 
-{Title: Python package for ticker visualization, ratios, etc.}
-
-# visualize(ticker, start = None, end = None, frequency = "daily", chart = "line")
+## visualize(ticker, start = None, end = None, frequency = "daily", chart = "line")
 
 The `visualize` function downloads and visualizes stock data for a given ticker symbol over a specified period. It supports line plots and can be extended to candlestick charts. The frequency of the data can be specified as daily or weekly.
 
-## Parameters
+### Parameters
 
 - `ticker` (str): The ticker symbol for the stock to be visualized. Examples include "AAPL" for Apple or "TSLA" for Tesla.
 - `start` (str): The start date for the data retrieval in 'YYYY-MM-DD' format.
@@ -14,13 +12,13 @@ The `visualize` function downloads and visualizes stock data for a given ticker 
 - `frequency` (str, optional): The frequency of the data. Valid options are "daily" or "weekly". Default value is "daily".
 - `chart` (str, optional): The type of chart to visualize. Valid options are "line" or "candle". Default value is "line".
 
-## Raises
+### Raises
 
 - `ValueError`: If the `start` or `end` dates are not provided, or if `frequency` or `chart` has an invalid value.
 - `RuntimeError`: If there is an error while downloading stock data or during plotting.
 - `NotImplementedError`: If the candlestick charting is attempted, but not implemented.
 
-## Usage
+### Usage
 
 ```python
 # Example 1: Visualize Apple stock data as a daily line plot from January 2021 to December 2021
@@ -36,24 +34,23 @@ except NotImplementedError as e:
     print(e)
 ```
 
-# visualize_against_sp500(ticker, start = None, end = None, frequency = "daily")
+## visualize_against_sp500(ticker, start = None, end = None, frequency = "daily")
 
 The `visualize_against_sp500` function visualizes a given stock's adjusted closing price against the S&P 500 index over a specified date range. It supports daily and weekly frequencies.
 
-## Parameters
+### Parameters
 
 - `ticker` (str): The stock ticker symbol to visualize, such as "AAPL" for Apple or "MSFT" for Microsoft.
 - `start` (str): The start date for data retrieval in 'YYYY-MM-DD' format. This parameter is required.
 - `end` (str): The end date for data retrieval in 'YYYY-MM-DD' format. This parameter is also required.
 - `frequency` (str, optional): The frequency of the data. It can be either "daily" or "weekly". Defaults to "daily".
 
-## Raises
+### Raises
 
 - `ValueError`: If `start` or `end` is not provided, or if `frequency` has an invalid value.
 - `RuntimeError`: If an error occurs during data retrieval or plotting.
 
-## Usage
-
+### Usage
 
 ```python
 
@@ -71,27 +68,27 @@ except ValueError as e:
 
 ```
 
-# log_returns(ticker, start = None, end = None, frequency = "daily")
+## log_returns(ticker, start = None, end = None, frequency = "daily")
 
 The `log_returns` function calculates the logarithmic returns for a specified stock over a given date range and frequency. It uses daily or weekly data to compute the log returns, allowing for financial analysis and other time series operations.
 
-## Parameters
+### Parameters
 
 - `ticker` (str): The stock ticker symbol to retrieve data for, such as "AAPL" for Apple or "GOOGL" for Google.
 - `start` (str): The start date for data retrieval in 'YYYY-MM-DD' format. This parameter is required.
 - `end` (str): The end date for data retrieval in 'YYYY-MM-DD' format. This parameter is also required.
 - `frequency` (str, optional): The frequency of the data. It can be either "daily" or "weekly". Default value is "daily".
 
-## Returns
+### Returns
 
 - A `pandas.DataFrame` containing the logarithmic returns for the specified stock. The data will be without NaN values.
 
-## Raises
+### Raises
 
 - `ValueError`: If the `start` or `end` dates are not provided, or if the `frequency` is invalid.
 - `RuntimeError`: If there is an error during data retrieval or calculation.
 
-## Usage
+### Usage
 
 ```python
 # Example 1: Calculate daily log returns for Apple stock in 2021
@@ -109,28 +106,27 @@ except ValueError as e:
     print(f"Error: {e}")
 ```
 
-# daily_returns(ticker, start = None, end = None, frequency = "daily")
+## daily_returns(ticker, start = None, end = None, frequency = "daily")
 
 The `daily_returns` function calculates the daily returns (percentage change) for a given stock over a specified date range and frequency. It uses daily or weekly adjusted closing prices to compute the returns.
 
-## Parameters
+### Parameters
 
 - `ticker` (str): The stock ticker symbol to retrieve data for, such as "AAPL" for Apple or "TSLA" for Tesla.
 - `start` (str): The start date for data retrieval in 'YYYY-MM-DD' format. This parameter is required.
 - `end` (str): The end date for data retrieval in 'YYYY-MM-DD' format. This parameter is also required.
 - `frequency` (str, optional): The frequency of the data. Options are "daily" or "weekly". Defaults to "daily".
 
-## Returns
+### Returns
 
 - A `pandas.DataFrame` containing the daily returns (percentage change) for the specified stock. The DataFrame does not contain NaN values.
 
-## Raises
+### Raises
 
 - `ValueError`: If the `start` or `end` dates are not provided, or if the `frequency` has an invalid value.
 - `RuntimeError`: If there is an error during data retrieval or calculation.
 
-## Usage
-
+### Usage
 
 ```python
 # Example 1: Calculate daily returns for Apple stock in 2021
@@ -148,11 +144,11 @@ except ValueError as e:
     print(f"Error: {e}")
 ```
 
-# rolling_volatility(ticker, start = None, end = None, frequency = "daily", window = 20)
+## rolling_volatility(ticker, start = None, end = None, frequency = "daily", window = 20)
 
 The `rolling_volatility` function calculates the rolling standard deviation (volatility) of daily returns for a given stock over a specified period and frequency. It supports daily and weekly frequencies, with a customizable window size for the rolling calculation.
 
-## Parameters
+### Parameters
 
 - `ticker` (str): The stock ticker symbol to retrieve data for, such as "AAPL" for Apple or "TSLA" for Tesla.
 - `start` (str): The start date for data retrieval in 'YYYY-MM-DD' format. This parameter is required.
@@ -160,16 +156,16 @@ The `rolling_volatility` function calculates the rolling standard deviation (vol
 - `frequency` (str, optional): The frequency of the data. Options are "daily" or "weekly". Defaults to "daily".
 - `window` (int, optional): The window size for the rolling standard deviation. Defaults to 20.
 
-## Returns
+### Returns
 
 - A `pandas.DataFrame` containing the rolling volatility. The output DataFrame does not contain NaN values.
 
-## Raises
+### Raises
 
 - `ValueError`: If the `start` or `end` dates are not provided, or if `frequency` has an invalid value.
 - `RuntimeError`: If there is an error during data retrieval or calculation.
 
-## Usage
+### Usage
 
 ```python
 # Example 1: Calculate 20-day rolling volatility for Apple stock in 2021
@@ -187,11 +183,11 @@ except ValueError as e:
     print(f"Error: {e}")
 ```
 
-# sharpe_ratio(ticker, start = None, end = None, risk_free_rate = 0.01, frequency = 'daily')
+## sharpe_ratio(ticker, start = None, end = None, risk_free_rate = 0.01, frequency = 'daily')
 
 The `sharpe_ratio` function calculates the Sharpe ratio for a given stock over a specified date range and frequency. It measures the risk-adjusted return of an investment, comparing the expected excess return to the standard deviation of returns.
 
-## Parameters
+### Parameters
 
 - `ticker` (str): The stock ticker symbol to retrieve data for, such as "AAPL" for Apple or "MSFT" for Microsoft.
 - `start` (str): The start date for data retrieval in 'YYYY-MM-DD' format. This parameter is required.
@@ -199,16 +195,16 @@ The `sharpe_ratio` function calculates the Sharpe ratio for a given stock over a
 - `risk_free_rate` (float, optional): The annualized risk-free rate. Defaults to 0.01 (1%).
 - `frequency` (str, optional): The frequency of the data. Options are "daily" or "weekly". Defaults to "daily".
 
-## Returns
+### Returns
 
 - A single float value representing the Sharpe ratio for the specified stock and date range.
 
-## Raises
+### Raises
 
 - `ValueError`: If `start` or `end` is not provided, or if `frequency` is not one of the expected values.
 - `RuntimeError`: If there is an error during data retrieval or Sharpe ratio calculation.
 
-## Usage
+### Usage
 
 ```python
 # Example 1: Calculate the daily Sharpe ratio for Apple stock in 2021
@@ -226,25 +222,25 @@ except ValueError as e:
     print(f"Error: {e}")
 ```
 
-# pe_ratio(ticker, period = "1d")
+## pe_ratio(ticker, period = "1d")
 
 The `pe_ratio` function calculates the Price/Earnings (P/E) ratio for a given stock. The P/E ratio is a measure of the stock's price relative to its earnings per share.
 
-## Parameters
+### Parameters
 
 - `ticker` (str): The stock ticker symbol to retrieve data for, such as "AAPL" for Apple or "GOOGL" for Google. This parameter is required.
 - `period` (str, optional): The period to consider for the stock price. Defaults to "1d".
 
-## Returns
+### Returns
 
 - A float representing the P/E ratio for the given stock and period.
 
-## Raises
+### Raises
 
 - `ValueError`: If the `ticker` is not provided, if no data is available for the specified period, or if trailing EPS is invalid.
 - `RuntimeError`: If there is an error during data retrieval or P/E ratio calculation.
 
-## Usage
+### Usage
 
 ```python
 # Example 1: Calculate the P/E ratio for Apple stock
@@ -262,26 +258,26 @@ except ValueError as e:
     print(f"Error: {e}")
 ```
 
-# ps_ratio(ticker, start = None, end = None)
+## ps_ratio(ticker, start = None, end = None)
 
 The `ps_ratio` function calculates the Price/Sales (P/S) ratio for a given stock over a specified period. The P/S ratio measures the stock's price relative to its revenue.
 
-## Parameters
+### Parameters
 
 - `ticker` (str): The stock ticker symbol to retrieve data for, such as "AAPL" for Apple or "TSLA" for Tesla. This parameter is required.
 - `start` (str): The start date for data retrieval in 'YYYY-MM-DD' format. This parameter is required.
 - `end` (str): The end date for data retrieval in 'YYYY-MM-DD' format. This parameter is required.
 
-## Returns
+### Returns
 
 - A float representing the Price/Sales (P/S) ratio for the given stock.
 
-## Raises
+### Raises
 
 - `ValueError`: If `start` or `end` dates are not provided, if there's no data for the specified period, or if market capitalization or revenue data is missing.
 - `RuntimeError`: If there's an error during data retrieval or P/S ratio calculation.
 
-## Usage
+### Usage
 
 ```python
 # Example 1: Calculate the P/S ratio for Apple stock in 2021
@@ -295,22 +291,22 @@ except ValueError as e:
     print(f"Error: {e}")
 ```
 
-# macd(ticker, start=None, end=None)
+## macd(ticker, start=None, end=None)
 
 The `macd` function calculates and visualizes the Moving Average Convergence Divergence (MACD) for a given stock over a specified period. It plots the MACD line and the Signal line.
 
-## Parameters
+### Parameters
 
 - `ticker` (str): The stock ticker symbol to retrieve data for, such as "AAPL" for Apple or "MSFT" for Microsoft. This parameter is required.
 - `start` (str): The start date for data retrieval in 'YYYY-MM-DD' format. This parameter is required.
 - `end` (str): The end date for data retrieval in 'YYYY-MM-DD' format. This parameter is also required.
 
-## Raises
+### Raises
 
 - `ValueError`: If the `start` or `end` dates are not provided or if there's no data for the specified period.
 - `RuntimeError`: If there's an error during data retrieval, calculation, or plotting.
 
-## Usage
+### Usage
 
 ```python
 # Example 1: Calculate and visualize the MACD for Apple stock in 2021
@@ -323,4 +319,4 @@ except ValueError as e:
     print(f"Error: {e}")
 ```
 
-# Author: Aayush Khandekar
+## Author: Aayush Khandekar
