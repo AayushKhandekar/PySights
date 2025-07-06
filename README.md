@@ -1,4 +1,4 @@
-# stockinsights
+# PySights
 
 ## visualize(ticker, start = None, end = None, frequency = "daily", chart = "line")
 
